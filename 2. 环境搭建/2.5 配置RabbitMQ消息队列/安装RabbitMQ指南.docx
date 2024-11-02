@@ -1,0 +1,71 @@
+# 安装RabbitMQ指南
+
+## 1. 简介
+RabbitMQ是一个开源的消息代理软件，用于在分布式系统中进行消息传递。本文档将指导您在Windows、macOS和Linux操作系统上安装RabbitMQ。
+
+## 2. 安装步骤
+
+### 2.1 Windows系统
+1. 访问RabbitMQ官网下载Windows安装包：[https://www.rabbitmq.com/download.html](https://www.rabbitmq.com/download.html)
+2. 运行安装程序，按照提示完成安装。
+3. 安装完成后，启动RabbitMQ服务。
+
+### 2.2 macOS系统
+1. 使用Homebrew安装RabbitMQ：
+   ```
+   brew install rabbitmq
+   ```
+2. 安装完成后，启动RabbitMQ服务：
+   ```
+   brew services start rabbitmq
+   ```
+
+### 2.3 Linux系统
+1. 使用包管理器安装RabbitMQ：
+   - 对于基于Debian的系统（如Ubuntu）：
+     ```
+     sudo apt-get update
+     sudo apt-get install rabbitmq-server
+     ```
+   - 对于基于Red Hat的系统（如CentOS）：
+     ```
+     sudo yum install rabbitmq-server
+     ```
+2. 安装完成后，启动RabbitMQ服务：
+   ```
+   sudo systemctl start rabbitmq-server
+   ```
+
+## 3. 配置RabbitMQ
+1. 打开终端或命令提示符。
+2. 输入以下命令访问RabbitMQ控制台：
+   ```
+   rabbitmqctl
+   ```
+3. 使用以下命令列出所有用户：
+   ```
+   list_users
+   ```
+4. 使用以下命令添加新用户：
+   ```
+   add_user username password
+   ```
+5. 使用以下命令设置用户权限：
+   ```
+   set_user_tags username administrator
+   ```
+6. 使用以下命令设置虚拟主机：
+   ```
+   add_vhost vhost_name
+   ```
+7. 使用以下命令设置用户对虚拟主机的权限：
+   ```
+   set_permissions -p vhost_name username ".*" ".*" ".*"
+   ```
+
+## 4. 验证安装
+1. 打开浏览器，访问RabbitMQ Web管理界面：[http://localhost:15672](http://localhost:15672)
+2. 使用默认用户`guest`登录，用户名和密码均为`guest`。
+
+## 5. 总结
+按照上述指南操作，您应该能够在您的系统上成功安装RabbitMQ。接下来，您可以开始使用RabbitMQ进行消息传递了。

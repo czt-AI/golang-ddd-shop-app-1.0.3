@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="User">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UserId" type="xs:int" />
+        <xs:element name="Username" type="xs:string" />
+        <xs:element name="Password" type="xs:string" />
+        <xs:element name="Email" type="xs:string" />
+        <xs:element name="Phone" type="xs:string" />
+        <xs:element name="Nickname" type="xs:string" minOccurs="0" />
+        <xs:element name="AvatarUrl" type="xs:string" minOccurs="0" />
+        <xs:element name="RegistrationTime" type="xs:dateTime" />
+        <xs:element name="LastLoginTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
+shop-app/1. 项目规划/1.3 定义领域模型/Product.xsd
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Product">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProductId" type="xs:int" />
+        <xs:element name="ProductName" type="xs:string" />
+        <xs:element name="Description" type="xs:string" minOccurs="0" />
+        <xs:element name="Price" type="xs:decimal" />
+        <xs:element name="Stock" type="xs:int" />
+        <xs:element name="CategoryId" type="xs:int" />
+        <xs:element name="ImageUrl" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
+shop-app/1. 项目规划/1.3 定义领域模型/Category.xsd
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Category">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CategoryId" type="xs:int" />
+        <xs:element name="CategoryName" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
+shop-app/1. 项目规划/1.3 定义领域模型/Comment.xsd
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Comment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CommentId" type="xs:int" />
+        <xs:element name="ProductId" type="xs:int" />
+        <xs:element name="Content" type="xs:string" />
+        <xs:element name="CreateTime" type="xs:dateTime" />
+        <xs:element name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
+shop-app/1. 项目规划/1.3 定义领域模型/Order.xsd
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Order">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OrderId" type="xs:int" />
+        <xs:element name="UserId" type="xs:int" />
+        <xs:element name="OrderStatus" type="xs:string" />
+        <xs:element name="CreateTime" type="xs:dateTime" />
+        <xs:element name="PayTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="ShipTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="ReceiveTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="TotalPrice" type="xs:decimal" />
+        <xs:element name="PaymentMethod" type="xs:string" />
+        <xs:element name="LogisticsCompany" type="xs:string" minOccurs="0" />
+        <xs:element name="LogisticsNumber" type="xs:string" minOccurs="0" />
+        <xs:element name="Items" type="xs:sequence">
+          <xs:element name="Item" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ProductId" type="xs:int" />
+                <xs:element name="Quantity" type="xs:int" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

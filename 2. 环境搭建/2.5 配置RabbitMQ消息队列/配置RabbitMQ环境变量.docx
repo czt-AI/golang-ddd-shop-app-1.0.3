@@ -1,0 +1,55 @@
+# 配置RabbitMQ环境变量
+
+## Windows系统
+1. 打开系统环境变量编辑器：
+   - 按下`Win + R`，输入`sysdm.cpl`并回车。
+   - 在系统属性窗口中，点击“环境变量”按钮。
+
+2. 在系统变量中，找到并编辑`Path`变量：
+   - 点击“编辑”按钮。
+   - 在变量值中添加RabbitMQ的bin目录路径，例如：
+     ```
+     C:\path\to\rabbitmq_server-3.x.x\sbin
+     ```
+   - 点击“确定”保存更改。
+
+## macOS系统
+1. 打开终端。
+2. 编辑`.bash_profile`或`.zshrc`文件：
+   - 使用文本编辑器打开文件，例如：
+     ```
+     nano ~/.bash_profile
+     ```
+   - 添加以下行：
+     ```
+     export PATH=$PATH:/path/to/rabbitmq/bin
+     ```
+   - 保存并关闭文件。
+
+3. 使更改生效：
+   - 在终端中执行以下命令：
+     ```
+     source ~/.bash_profile
+     ```
+
+## Linux系统
+1. 打开终端。
+2. 编辑`.bashrc`或`.zshrc`文件：
+   - 使用文本编辑器打开文件，例如：
+     ```
+     nano ~/.bashrc
+     ```
+   - 添加以下行：
+     ```
+     export PATH=$PATH:/path/to/rabbitmq/bin
+     ```
+   - 保存并关闭文件。
+
+3. 使更改生效：
+   - 在终端中执行以下命令：
+     ```
+     source ~/.bashrc
+     ```
+
+## 总结
+通过上述步骤，您已经成功配置了RabbitMQ的环境变量。现在，您可以在任何终端窗口中直接使用RabbitMQ命令。

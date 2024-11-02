@@ -1,0 +1,40 @@
+package main
+
+import (
+	"context"
+	"log"
+	"net"
+
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/keepalive"
+	"yourdomain/yourservice" // Replace with your actual package path
+)
+
+type server struct {
+	yourservice.UnimplementedYourServiceServer
+}
+
+func (s *server) YourMethod(ctx context.Context, req *yourservice.YourRequest) (*yourservice.YourResponse, error) {
+	// Your service logic here
+	return &yourservice.YourResponse{}, nil
+}
+
+func main() {
+	lis, err := net.Listen("tcp", ":50051")
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
+	}
+
+	s := grpc.NewServer(
+		grpc.KeepaliveParams(keepalive.ServerParameters{
+			Time:    10 * time.Second, // Time for the keepalive probe
+			Timeout: 1 * time.Second, // Time to wait for a response from the client
+		}),
+	)
+
+	yourservice.RegisterYourServiceServer(s, &server{})
+
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
+}

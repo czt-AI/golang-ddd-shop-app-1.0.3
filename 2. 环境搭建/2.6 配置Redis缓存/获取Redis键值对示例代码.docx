@@ -1,0 +1,31 @@
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+
+	"github.com/go-redis/redis/v8"
+)
+
+func main() {
+	// 连接到Redis服务器
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379", // Redis服务器地址
+		Password: "",               // 密码，如果设置了密码则填写密码
+		DB:       0,                // 使用默认数据库
+	})
+
+	// 获取键值对
+	ctx := context.Background()
+	val, err := rdb.Get(ctx, "key").Result()
+	if err != nil {
+		if err == redis.Nil {
+			log.Println("Key does not exist")
+		} else {
+			log.Fatalf("Failed to get key-value pair: %v", err)
+		}
+	} else {
+		log.Printf("Key found, value: %s", val)
+	}
+}

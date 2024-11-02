@@ -1,0 +1,43 @@
+package main
+
+import (
+	"context"
+	"log"
+	"time"
+
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/keepalive"
+	"yourdomain/yourservice" // Replace with your actual package path
+)
+
+func main() {
+	// 设置连接参数
+	conn, err := grpc.Dial("localhost:50051",
+		grpc.WithInsecure(),
+		grpc.WithKeepaliveParams(keepalive.ClientParameters{
+			Time:    10 * time.Second, // Time for the keepalive probe
+			Timeout: 1 * time.Second, // Time to wait for a response from the server
+		}),
+	)
+	if err != nil {
+		log.Fatalf("did not connect: %v", err)
+	}
+	defer conn.Close()
+
+	c := yourservice.NewYourServiceClient(conn)
+
+	// 构建请求
+	req := &yourservice.YourRequest{
+		// 设置请求参数
+	}
+
+	// 调用服务
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+
+	resp, err := c.YourMethod(ctx, req)
+	if err != nil {
+		log.Fatalf("could not call YourMethod: %v", err)
+	}
+	log.Printf("YourMethod returned: %v", resp)
+}

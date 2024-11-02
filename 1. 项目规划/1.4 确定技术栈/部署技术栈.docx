@@ -1,0 +1,62 @@
+# 部署技术栈
+
+## 1. 容器化技术
+- Docker
+
+## 2. 容器编排工具
+- Kubernetes
+- Docker Swarm
+
+## 3. 配置管理
+- Ansible
+- Terraform
+
+## 4. 部署自动化
+- Jenkins
+- GitLab CI/CD
+- CircleCI
+
+## 5. 自动化部署脚本
+- Shell
+- Python
+- Go
+
+## 6. 配置文件管理
+- Ansible Vault
+- HashiCorp Vault
+
+## 7. 虚拟化技术
+- VMware
+- Hyper-V
+- VirtualBox
+
+## 8. 云服务提供商
+- AWS
+- Azure
+- Google Cloud Platform
+
+## 9. 监控工具
+- Prometheus
+- Grafana
+- Nagios
+
+## 10. 日志管理
+- ELK Stack (Elasticsearch, Logstash, Kibana)
+- Splunk
+
+## 11. 安全组与网络配置
+- AWS Security Groups
+- Azure Network Security Groups
+- GCP VPC Firewall Rules
+
+## 12. 灾难恢复
+- 备份策略
+- 灾难恢复计划
+
+## 13. 性能优化
+- Load Balancing
+- Caching
+
+## 14. 自动扩展
+- Kubernetes Horizontal Pod Autoscaler
+- AWS Auto Scaling

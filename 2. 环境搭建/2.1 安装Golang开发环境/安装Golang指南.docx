@@ -1,0 +1,68 @@
+# 安装Golang指南
+
+## 1. 简介
+Golang（也称为Go）是一种开源的编程语言，由Google开发。本文档将指导您在Windows、macOS和Linux操作系统上安装Golang开发环境。
+
+## 2. 安装步骤
+
+### 2.1 Windows系统
+1. 访问Golang官方网站下载安装程序：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)
+2. 运行安装程序，按照提示完成安装。
+3. 安装完成后，在系统环境变量中添加Golang的bin目录到Path变量中。
+4. 打开命令提示符，输入`go version`检查是否安装成功。
+
+### 2.2 macOS系统
+1. 使用Homebrew安装Golang：
+   ```
+   brew install go
+   ```
+2. 安装完成后，打开终端，输入`go version`检查是否安装成功。
+
+### 2.3 Linux系统
+1. 使用包管理器安装Golang：
+   - 对于基于Debian的系统（如Ubuntu）：
+     ```
+     sudo apt update
+     sudo apt install golang-go
+     ```
+   - 对于基于Red Hat的系统（如CentOS）：
+     ```
+     sudo yum install golang
+     ```
+2. 安装完成后，打开终端，输入`go version`检查是否安装成功。
+
+## 3. 设置GOPATH
+1. 在安装完成后，设置GOPATH环境变量：
+   - Windows：
+     ```
+     set GOPATH=C:\path\to\your\go\workspace
+     ```
+   - macOS/Linux：
+     ```
+     export GOPATH=/path/to/your/go/workspace
+     ```
+2. 创建一个名为`bin`的目录在GOPATH的根目录下，用于存放编译后的可执行文件。
+
+## 4. 设置GOROOT
+1. GOROOT是Go语言安装目录的路径，通常与GOPATH一起设置：
+   - Windows：
+     ```
+     set GOROOT=C:\path\to\your\go
+     ```
+   - macOS/Linux：
+     ```
+     export GOROOT=/path/to/your/go
+     ```
+
+## 5. 验证安装
+1. 打开命令提示符（Windows）或终端（macOS/Linux），输入以下命令：
+   ```
+   go version
+   ```
+2. 如果输出显示Golang的版本信息，则表示安装成功。
+
+## 6. 安装IDE
+1. 选择并安装您喜欢的Golang IDE，如Visual Studio Code、GoLand等。
+
+## 7. 总结
+本文档提供了在Windows、macOS和Linux系统上安装Golang开发环境的步骤。按照上述指南操作，您应该能够成功安装Golang并开始开发Go程序。

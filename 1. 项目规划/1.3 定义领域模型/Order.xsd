@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Order">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OrderId" type="xs:int" />
+        <xs:element name="UserId" type="xs:int" />
+        <xs:element name="OrderStatus" type="xs:string" />
+        <xs:element name="CreateTime" type="xs:dateTime" />
+        <xs:element name="PayTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="ShipTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="ReceiveTime" type="xs:dateTime" minOccurs="0" />
+        <xs:element name="TotalPrice" type="xs:decimal" />
+        <xs:element name="PaymentMethod" type="xs:string" />
+        <xs:element name="LogisticsCompany" type="xs:string" minOccurs="0" />
+        <xs:element name="LogisticsNumber" type="xs:string" minOccurs="0" />
+        <xs:element name="Items" type="xs:sequence">
+          <xs:element name="Item" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ProductId" type="xs:int" />
+                <xs:element name="Quantity" type="xs:int" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

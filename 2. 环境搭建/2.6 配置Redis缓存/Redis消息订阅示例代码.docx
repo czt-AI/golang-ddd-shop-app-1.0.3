@@ -1,0 +1,32 @@
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/go-redis/redis/v8"
+)
+
+func main() {
+	// 连接到Redis服务器
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379", // Redis服务器地址
+		Password: "",               // 密码，如果设置了密码则填写密码
+		DB:       0,                // 使用默认数据库
+	})
+
+	// 订阅频道
+	pchannel := rdb.Subscribe(context.Background(), "test_channel")
+	if err := pchannel.Err(); err != nil {
+		log.Fatalf("Failed to subscribe to channel: %v", err)
+	}
+
+	// 处理订阅消息
+	for msg := range pchannel.Channel() {
+		if msg.Type == redis.Message {
+			log.Printf("Received message: %s", msg.Payload)
+		} else if msg.Type == redis.Subscription {
+			log.Printf("Subscription message: %s", msg.Payload)
+		}
+	}
+}

@@ -1,0 +1,9 @@
+msgs, err := ch.Consume(
+    "test_queue", // 队列名称
+    "",           // 消费者标签
+    true,         // 自动确认消息设置为false
+    false,        // 不独占队列
+    false,        // 不等待消息
+    false,        // 不排除系统消息
+    nil,          // 消费者参数
+)

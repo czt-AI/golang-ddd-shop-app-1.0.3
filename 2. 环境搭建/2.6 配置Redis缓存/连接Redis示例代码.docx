@@ -1,0 +1,26 @@
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/go-redis/redis/v8"
+)
+
+func main() {
+	// 连接到Redis服务器
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379", // Redis服务器地址
+		Password: "",               // 密码，如果设置了密码则填写密码
+		DB:       0,                // 使用默认数据库
+	})
+
+	// 测试连接
+	ctx := context.Background()
+	err := rdb.Ping(ctx).Err()
+	if err != nil {
+		log.Fatalf("Failed to connect to Redis: %v", err)
+	}
+
+	log.Println("Connected to Redis!")
+}

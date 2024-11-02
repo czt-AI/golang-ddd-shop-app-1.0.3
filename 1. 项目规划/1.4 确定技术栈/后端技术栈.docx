@@ -1,0 +1,53 @@
+# 后端技术栈
+
+## 1. 编程语言
+- Golang
+
+## 2. Web框架
+- Gin
+- Echo
+
+## 3. ORM
+- GORM
+
+## 4. 微服务框架
+- Go Micro
+- Kubernetes
+
+## 5. 数据库
+- MySQL
+- Redis
+
+## 6. 消息队列
+- RabbitMQ
+- Kafka
+
+## 7. API网关
+- Kong
+- Envoy
+
+## 8. 服务发现
+- Consul
+- ZooKeeper
+
+## 9. 测试框架
+- Testify
+- Ginkgo
+
+## 10. 版本控制
+- Git
+
+## 11. 包管理器
+- Go Modules
+
+## 12. 配置管理
+- Consul
+- Vault
+
+## 13. 日志管理
+- Zap
+- Logrus
+
+## 14. 性能监控
+- Prometheus
+- Grafana

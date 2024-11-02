@@ -1,0 +1,11 @@
+err = ch.Publish(
+    "",         // 交换机名称，空字符串表示默认交换机
+    "test_queue", // 队列名称
+    true,       // 消息持久化
+    false,      // 消费者确认
+    amqp.Publishing{
+        ContentType: "text/plain",
+        Body:        []byte("This is a persistent message."),
+        Persistent:  true, // 设置消息持久化
+    },
+)

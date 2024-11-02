@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Review">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReviewId" type="xs:int" />
+        <xs:element name="ProductId" type="xs:int" />
+        <xs:element name="UserId" type="xs:int" />
+        <xs:element name="Content" type="xs:string" />
+        <xs:element name="CreateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

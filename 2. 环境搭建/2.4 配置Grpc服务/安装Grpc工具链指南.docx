@@ -1,0 +1,50 @@
+# 安装Grpc工具链指南
+
+## 1. 简介
+gRPC是一个高性能、开源的远程过程调用（RPC）框架，用于现代应用程序之间的通信。本文档将指导您在Windows、macOS和Linux操作系统上安装gRPC工具链。
+
+## 2. 安装步骤
+
+### 2.1 Windows系统
+1. 下载gRPC预编译的二进制文件：[https://github.com/grpc/grpc/releases](https://github.com/grpc/grpc/releases)
+2. 解压下载的文件到指定目录。
+3. 将解压后的bin目录添加到系统环境变量Path中。
+
+### 2.2 macOS系统
+1. 使用Homebrew安装gRPC：
+   ```
+   brew tap grpc/grpc
+   brew install grpc
+   ```
+2. 安装完成后，在终端中输入`grpc`检查是否安装成功。
+
+### 2.3 Linux系统
+1. 使用包管理器安装gRPC：
+   - 对于基于Debian的系统（如Ubuntu）：
+     ```
+     sudo apt-get update
+     sudo apt-get install grpc
+     ```
+   - 对于基于Red Hat的系统（如CentOS）：
+     ```
+     sudo yum install grpc
+     ```
+2. 安装完成后，在终端中输入`grpc`检查是否安装成功。
+
+## 3. 安装Go gRPC插件
+1. 打开终端或命令提示符。
+2. 输入以下命令安装Go gRPC插件：
+   ```
+   go get -u google.golang.org/grpc
+   ```
+
+## 4. 验证安装
+1. 打开终端或命令提示符。
+2. 输入以下命令测试gRPC：
+   ```
+   grpc_health_probe -addr=localhost:50051
+   ```
+3. 如果返回健康检查的结果，则表示gRPC已成功安装。
+
+## 5. 总结
+按照上述指南操作，您应该能够在您的系统上成功安装gRPC工具链。接下来，您可以开始开发和使用gRPC服务了。

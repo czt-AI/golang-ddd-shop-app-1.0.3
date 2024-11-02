@@ -1,0 +1,7 @@
+# 在redis.conf中配置以下参数
+save 900 1          # 900秒内有至少1个键被修改时执行快照
+save 300 10         # 300秒内有至少10个键被修改时执行快照
+save 60 10000       # 60秒内有至少10000个键被修改时执行快照
+stop-writes-on-bgsave-error yes # 如果后台保存出现错误，停止写入
+rdbcompression yes  # 对保存的快照文件进行压缩
+rdbchecksum yes     # 对保存的快照文件进行校验

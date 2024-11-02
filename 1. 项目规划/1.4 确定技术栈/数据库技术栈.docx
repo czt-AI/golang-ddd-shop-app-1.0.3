@@ -1,0 +1,25 @@
+# 数据库技术栈
+
+## 1. 关系型数据库
+- MySQL
+- PostgreSQL
+
+## 2. 非关系型数据库
+- Redis
+- MongoDB
+
+## 3. 数据库连接池
+- GORM
+- MySQL-Connector/Go
+
+## 4. 数据库迁移工具
+- Flyway
+- Liquibase
+
+## 5. 数据库索引管理
+- Go-Postgres-Index
+- Go-Redis
+
+## 6. 数据库性能监控
+- Prometheus
+- New Relic

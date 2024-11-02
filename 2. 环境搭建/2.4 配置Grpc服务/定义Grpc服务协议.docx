@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "path/to/your/service";
+
+package yourservice;
+
+service YourService {
+  rpc YourMethod (YourRequest) returns (YourResponse);
+}
+
+message YourRequest {
+  // Your request parameters
+}
+
+message YourResponse {
+  // Your response parameters
+}
