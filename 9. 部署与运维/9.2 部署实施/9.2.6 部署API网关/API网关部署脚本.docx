@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# 更新系统包列表
+sudo apt-get update
+
+# 安装Golang编译器
+sudo apt-get install -y golang-go
+
+# 安装Gin
+go get -u github.com/gin-gonic/gin
+
+# 进入API网关项目目录
+cd /path/to/your/api/gateway/project
+
+# 编写API网关代码
+# 注意：以下代码仅为示例，需要根据实际需求进行修改
+cat << EOF > main.go
+package main
+
+import "github.com/gin-gonic/gin"
+
+func main() {
+	r := gin.Default()
+
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+
+	r.Run(":8080")
+}
+EOF
+
+# 构建Dockerfile
+cat << EOF > Dockerfile
+FROM golang:1.18-alpine
+WORKDIR /app
+COPY . .
+CMD ["go", "run", "main.go"]
+EOF
+
+# 构建Docker镜像
+docker build -t api-gateway-image .
+
+# 运行Docker容器
+docker run -d --name api-gateway-container -p 8080:8080 api-gateway-image
+EOF

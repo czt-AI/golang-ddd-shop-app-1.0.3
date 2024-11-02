@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# 更新系统包列表
+sudo apt-get update
+
+# 安装Redis
+sudo apt-get install -y redis-server
+
+# 启动Redis服务
+sudo systemctl start redis
+
+# 配置Redis
+# 注意：以下命令需要根据您的实际配置进行修改
+sudo nano /etc/redis/redis.conf
+# 在redis.conf中设置以下参数：
+# appendonly yes
+# save 900 1
+# save 300 10
+# save 60 10000
+# rdbcompression yes
+# rdbchecksum yes
+
+# 重启Redis服务
+sudo systemctl restart redis
+EOF

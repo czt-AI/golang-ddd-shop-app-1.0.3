@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# 更新系统包列表
+sudo apt-get update
+
+# 安装Node.js和npm
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# 进入前端项目目录
+cd /path/to/your/frontend/project
+
+# 安装前端依赖
+npm install
+
+# 构建前端应用
+npm run build
+
+# 创建Dockerfile
+cat << EOF > Dockerfile
+FROM node:14-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD ["npm", "start"]
+EOF
+
+# 构建Docker镜像
+docker build -t frontend-image .
+
+# 运行Docker容器
+docker run -d --name frontend-container -p 80:80 frontend-image
+
+# 配置Nginx
+sudo cp /path/to/nginx.conf /etc/nginx/sites-available/default
+sudo systemctl restart nginx

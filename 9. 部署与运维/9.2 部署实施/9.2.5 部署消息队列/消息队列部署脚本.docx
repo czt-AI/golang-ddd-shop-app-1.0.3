@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# 更新系统包列表
+sudo apt-get update
+
+# 安装RabbitMQ
+sudo apt-get install -y rabbitmq-server
+
+# 启动RabbitMQ服务
+sudo systemctl start rabbitmq-server
+
+# 配置RabbitMQ
+# 注意：以下命令需要根据您的实际配置进行修改
+sudo nano /etc/rabbitmq/rabbitmq.conf
+# 在rabbitmq.conf中设置以下参数：
+# management.console.port = 15672
+# cluster_formation.min_nodes = 2
+
+# 重启RabbitMQ服务
+sudo systemctl restart rabbitmq-server
+EOF

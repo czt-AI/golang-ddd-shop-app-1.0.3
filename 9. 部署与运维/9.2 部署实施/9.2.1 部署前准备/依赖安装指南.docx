@@ -1,0 +1,49 @@
+# 依赖安装指南
+
+## 引言
+在部署电商应用之前，需要安装一系列依赖软件。以下指南将指导您安装必要的依赖。
+
+## 1. Golang
+1. 访问Golang官网下载安装包：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)
+2. 安装完成后，添加Golang的bin目录到系统环境变量Path中。
+
+## 2. Docker
+1. 访问Docker官网下载安装包：[https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+2. 安装完成后，验证Docker是否安装成功：
+   ```
+   docker --version
+   ```
+
+## 3. Kubernetes
+1. 访问Kubernetes官网下载安装包：[https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
+2. 安装完成后，验证Kubernetes是否安装成功：
+   ```
+   kubectl version
+   ```
+
+## 4. Prometheus
+1. 安装Prometheus：
+   ```
+   sudo apt-get install prometheus
+   ```
+2. 配置Prometheus，如添加监控目标、设置报警规则等。
+
+## 5. Grafana
+1. 安装Grafana：
+   ```
+   sudo apt-get install grafana
+   ```
+2. 配置Grafana，如添加数据源、设置仪表板等。
+
+## 6. Jenkins
+1. 安装Jenkins：
+   ```
+   sudo apt-get install jenkins
+   ```
+2. 配置Jenkins，如设置用户权限、安装插件等。
+
+## 7. 其他依赖
+- 根据应用需求，安装其他依赖，如MySQL、Redis、RabbitMQ等。
+
+## 8. 总结
+完成以上步骤后，您应该已经安装了所有必要的依赖软件，可以开始部署和测试电商应用。

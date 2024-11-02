@@ -1,0 +1,52 @@
+# 部署前端应用指南
+
+## 引言
+前端应用是电商应用的重要组成部分，负责用户界面的展示和交互。以下指南将指导您部署前端应用。
+
+## 1. 准备工作
+- 确保已经安装了Node.js和npm。
+- 准备前端代码，通常是打包后的静态文件。
+
+## 2. 部署步骤
+### 2.1 使用Docker容器化
+1. 创建Dockerfile，定义前端应用的构建环境。
+2. 构建Docker镜像：
+   ```
+   docker build -t frontend-image .
+   ```
+3. 运行Docker容器：
+   ```
+   docker run -d --name frontend-container -p 80:80 frontend-image
+   ```
+
+### 2.2 使用Nginx作为反向代理
+1. 配置Nginx作为反向代理，将请求转发到前端容器。
+2. 编辑Nginx配置文件（通常是`/etc/nginx/sites-available/default`）：
+   ```
+   server {
+       listen 80;
+       server_name yourdomain.com;
+
+       location / {
+           proxy_pass http://frontend-container;
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+   }
+   ```
+3. 重启Nginx以应用配置：
+   ```
+   sudo systemctl restart nginx
+   ```
+
+## 3. 安全性
+- 配置HTTPS，使用SSL/TLS证书加密数据传输。
+
+## 4. 监控与日志
+- 使用Prometheus和Grafana监控前端应用性能。
+- 使用ELK Stack收集和存储前端应用日志。
+
+## 5. 总结
+完成以上步骤后，前端应用应该已经成功部署并对外提供服务。

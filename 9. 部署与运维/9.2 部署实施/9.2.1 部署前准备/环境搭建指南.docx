@@ -1,0 +1,56 @@
+# 环境搭建指南
+
+## 引言
+在部署电商应用之前，需要搭建合适的环境。以下指南将帮助您搭建必要的开发、测试和生产环境。
+
+## 1. 操作系统
+- 选择适合的操作系统，如Ubuntu 18.04、CentOS 7等。
+
+## 2. 软件包管理器
+- 安装软件包管理器，如apt（Ubuntu）或yum（CentOS）。
+
+## 3. 更新和升级
+- 更新系统包列表：
+  - Ubuntu:
+    ```
+    sudo apt update
+    ```
+  - CentOS:
+    ```
+    sudo yum update
+    ```
+- 升级系统：
+  - Ubuntu:
+    ```
+    sudo apt full-upgrade
+    ```
+  - CentOS:
+    ```
+    sudo yum upgrade
+
+    sudo systemctl restart httpd
+    ```
+
+## 4. 开发工具
+- 安装代码编辑器或IDE，如Visual Studio Code、GoLand等。
+
+## 5. 编译器
+- 安装Golang编译器，用于编译Go代码。
+
+## 6. 数据库
+- 安装MySQL或PostgreSQL数据库服务器。
+
+## 7. 缓存
+- 安装Redis缓存服务器。
+
+## 8. 消息队列
+- 安装RabbitMQ消息队列服务器。
+
+## 9. 防火墙
+- 安装并配置防火墙，如iptables或firewalld。
+
+## 10. 安全性
+- 安装安全软件，如fail2ban，防止暴力破解。
+
+## 11. 总结
+完成以上步骤后，您应该拥有一个配置良好的环境，可以开始部署和测试电商应用。
